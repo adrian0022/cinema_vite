@@ -2,19 +2,19 @@ import { useParams } from "react-router-dom";
 import axios, { API_KEY } from "../api/axios";
 import { useQuery } from "@tanstack/react-query";
 
-const MovieDetailsPage = () => {
-  const { movieId } = useParams();
+const MovieDetailsPage = ({ enpointKey }) => {
+  const { Id } = useParams();
 
   const getMovieDetails = async () => {
     const response = await axios.get(
-      `/movie/${movieId}?language=en-US&api_key=${API_KEY}`
+      `/${enpointKey}/${Id}?language=en-US&api_key=${API_KEY}`
     );
 
     return response.data;
   };
 
   const { data, isLoading, isError } = useQuery(
-    ["movieDetails" + movieId],
+    [enpointKey + "Details" + Id],
     getMovieDetails
   );
   console.log(data);
@@ -26,7 +26,7 @@ const MovieDetailsPage = () => {
       {isError ? <p>Wystąpił błąd</p> : null}
       {data ? (
         <div>
-          <p>Title: {data.title}</p>
+          <p>Title: {enpointKey == "movie" ? data.title : data.name}</p>
           <img
             src={"https://image.tmdb.org/t/p/w200" + data.poster_path}
             alt=""

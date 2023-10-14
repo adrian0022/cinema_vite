@@ -4,7 +4,11 @@ import axios, { API_KEY } from "../api/axios";
 import Pagination from "./Pagination";
 import MoviesList from "./MoviesList";
 
-const MoviesListDataLogic = ({ endpointLink, queryKey }) => {
+const MoviesListDataLogic = ({
+  endpointLink,
+  queryKey,
+  resourceType = "movie",
+}) => {
   const [activePage, setActivePage] = useState(1);
 
   const handleSatActivePage = (pageNumber) => {
@@ -33,7 +37,7 @@ const MoviesListDataLogic = ({ endpointLink, queryKey }) => {
       {isError ? <p>wystąpił błąd</p> : null}
       {data?.results ? (
         <>
-          <MoviesList moviesList={data.results} />
+          <MoviesList moviesList={data.results} resourceType={resourceType} />
           <Pagination
             activePage={activePage}
             setActivePage={handleSatActivePage}

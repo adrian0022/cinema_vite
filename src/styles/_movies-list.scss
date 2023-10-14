@@ -1,0 +1,27 @@
+.list-container {
+  flex-grow: 1;
+}
+
+.movies-list {
+  gap: 2rem;
+  display: grid;
+  flex-direction: column;
+  row-gap: 7rem;
+  width: 100%;
+  padding: 3rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .movie-list-item {
+    img {
+      width: 100%;
+      aspect-ratio: 2/3;
+      border: 3px solid white;
+      display: block;
+    }
+  }
+}

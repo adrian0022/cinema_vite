@@ -13,4 +13,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-@import "global";
+@import "./styles/utils";
+@import "./styles/navbar";
+@import "./styles/movies-list";
+@import "./styles/pagination";
+@import "./styles/footer";
+@import "./styles/global";

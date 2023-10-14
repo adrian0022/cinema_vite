@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap");
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  text-align: center;
+  font-family: "Arial";
+  background-color: #171717;
+
+  .main-view-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}

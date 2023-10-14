@@ -4,7 +4,9 @@ const Pagination = ({ activePage, setActivePage, totalPages }) => {
       <span
         className={activePage === 1 ? "active" : null}
         onClick={() => setActivePage(1)}
-      ></span>
+      >
+        1
+      </span>
       <span
         className={activePage === 2 ? "active" : null}
         onClick={() => setActivePage(2)}

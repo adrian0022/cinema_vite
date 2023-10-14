@@ -1,6 +1,6 @@
 import MovieListItem from "./MovieListItem";
 
-const MoviesList = ({ moviesList }) => {
+const MoviesList = ({ moviesList, resourceType }) => {
   return (
     <ul className="movies-list">
       {moviesList.map((movie) => {
@@ -8,9 +8,10 @@ const MoviesList = ({ moviesList }) => {
           <MovieListItem
             key={movie.id}
             id={movie.id}
-            title={movie.title}
+            title={resourceType == "movie" ? movie.title : movie.name}
             poster={movie.poster_path}
             voteAvg={movie.vote_average}
+            resourceType={resourceType}
           />
         );
       })}

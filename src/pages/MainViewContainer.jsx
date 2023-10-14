@@ -1,23 +1,15 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import { Searchbar } from "../components/Searchbar";
 
 const MainViewContainer = () => {
   return (
     <div className="main-view-container">
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Popular</Link>
-          </li>
-          <li>
-            <Link to="/topRated">TopRated</Link>
-          </li>
-          <li>
-            <Link to="/upcoming">Upcoming</Link>
-          </li>
-        </ul>
-      </nav>
+      <Navbar />
       <Outlet />
-      <footer className="footer">Hello, I'm footer</footer>
+      <footer className="footer">
+        <p>Hello, I'm footer</p>
+      </footer>
     </div>
   );
 };
