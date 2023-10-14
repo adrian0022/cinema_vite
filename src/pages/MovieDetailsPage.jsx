@@ -20,7 +20,7 @@ const MovieDetailsPage = ({ enpointKey }) => {
   console.log(data);
 
   return (
-    <div>
+    <div className="movie-details content-wrapper">
       <h2>MovieDetailsPage</h2>
       {isLoading ? <p>Ładowanie....</p> : null}
       {isError ? <p>Wystąpił błąd</p> : null}
