@@ -41,7 +41,9 @@ const MoviesListDataLogic = ({
           <Pagination
             activePage={activePage}
             setActivePage={handleSatActivePage}
-            totalPages={data?.totalPages}
+            totalPages={
+              (data?.['total_pages'] > 99) ? 99 : data['total_pages']
+            }
           />
         </>
       ) : null}

@@ -9,10 +9,13 @@ const SearchingResultsList = () => {
   const [searchParams] = useSearchParams();
 
   const [searchQuery, setSearchQuery] = useState(searchParams.get("query"));
+  const [resultType, setresultType] = useState(searchParams.get("resultType"));
 
   useEffect(() => {
     const query = searchParams.get("query");
+    const resultTypeParam = searchParams.get('resultType');
     if (searchQuery != query) setSearchQuery(query);
+    if(resultType !=resultTypeParam) setresultType(resultTypeParam)
   }, [searchParams]);
 
   const [activePage, setActivePage] = useState(1);
@@ -25,14 +28,14 @@ const SearchingResultsList = () => {
 
   const getData = async () => {
     const response = await axios.get(
-      `/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=${activePage}&api_key=${API_KEY}`
+      `/search/${resultType}?query=${searchQuery}&include_adult=false&language=en-US&page=${activePage}&api_key=${API_KEY}`
     );
 
     return response.data;
   };
 
   const { data, isLoading, isError } = useQuery(
-    [`searchingResults_${activePage}`, searchQuery],
+    [`searchingResults_${activePage}`, searchQuery, resultType],
     getData
   );
   console.log(data);
@@ -48,7 +51,9 @@ const SearchingResultsList = () => {
             <Pagination
               activePage={activePage}
               setActivePage={handleSatActivePage}
-              totalPages={data?.totalPages}
+              totalPages={
+                (data?.['total_pages'] > 99) ? 99 : data['total_pages']
+              }
             />
           </>
         ) : (

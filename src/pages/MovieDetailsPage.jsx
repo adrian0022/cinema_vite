@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import axios, { API_KEY } from "../api/axios";
 import { useQuery } from "@tanstack/react-query";
+import placeholder from '@images/placeholder.jpg'
 
 const MovieDetailsPage = ({ enpointKey }) => {
   const { Id } = useParams();
@@ -28,8 +29,8 @@ const MovieDetailsPage = ({ enpointKey }) => {
         <div>
           <p>Title: {enpointKey == "movie" ? data.title : data.name}</p>
           <img
-            src={"https://image.tmdb.org/t/p/w200" + data.poster_path}
-            alt=""
+            src={data['poster_path']?`https://image.tmdb.org/t/p/w200${data['poster_path']}`:placeholder}
+            alt={data.title + " poster"}
           />
           <p>
             {data.vote_average} / 10 ({data.vote_count})

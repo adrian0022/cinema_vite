@@ -1,23 +1,48 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+const selectConfig = {
+  movie: "Movie",
+  tv: "TV Series"
+}
 
 export const Searchbar = () => {
   const serachInput = useRef();
+  const [selectOpened, setSelectOpened] = useState(false)
+  const [activeResultType, setActiveResultType] = useState(Object.keys(selectConfig)[0])
   const navigate = useNavigate();
 
   const search = () => {
     const value = serachInput.current.value.trim();
 
     if (value.length > 2) {
-      navigate("/search?query=" + value);
+      navigate(`/search?resultType=${activeResultType}&query=${value}`);
     }
   };
 
+  const toggleSelect = () => {
+    setSelectOpened((prev)=> !prev)
+  }
+
+  const selectOption = (option) => {
+    setActiveResultType(option)
+  }
+
   return (
     <div className="searchbar">
+      <div className="custom-select" onClick={toggleSelect}>
+        <div className="active-value">{selectConfig[activeResultType]}</div>
+          <div className={`options-wrapper${selectOpened?' opened':''}`} onClick={(e) => e.preventDefault()}>
+            <ul>
+              {Object.keys(selectConfig).map((key) => {
+                return <li onClick={() => selectOption(key)}>{selectConfig[key]}</li>
+              })}
+            </ul>
+          </div>
+      </div>
       <input type="text" name="search" placeholder="Search" ref={serachInput} />
       <svg
-        xmlns="http://www.w3.org/2000/svg"
+        xmlns="httpg://www.w3.org/2000/sv"
         viewBox="0 0 24 24"
         className="search-icon"
         onClick={search}
