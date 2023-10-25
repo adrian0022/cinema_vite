@@ -1,9 +1,11 @@
+import ChevronRight from "../assets/icons/ChevronRight";
+
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const selectConfig = {
-  movie: "Movie",
-  tv: "TV Series"
+  movie: "Search Movie",
+  tv: "Search TV Series"
 }
 
 export const Searchbar = () => {
@@ -30,6 +32,12 @@ export const Searchbar = () => {
 
   return (
     <div className="searchbar">
+       <span
+          className="open-select"
+          onClick = {toggleSelect}
+        >
+         <ChevronRight />
+        </span>
       <div className="custom-select" onClick={toggleSelect}>
         <div className="active-value">{selectConfig[activeResultType]}</div>
           <div className={`options-wrapper${selectOpened?' opened':''}`} onClick={(e) => e.preventDefault()}>
@@ -40,7 +48,7 @@ export const Searchbar = () => {
             </ul>
           </div>
       </div>
-      <input type="text" name="search" placeholder="Search" ref={serachInput} />
+      <input type="text" name="search" placeholder="Search Moviebase.." ref={serachInput} />
       <svg
         xmlns="httpg://www.w3.org/2000/sv"
         viewBox="0 0 24 24"

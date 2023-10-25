@@ -1,6 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 import { Searchbar } from "./Searchbar";
 import PopularIcon from "@icons/PopularIcon";
+import TopRatedIcon from "@icons/TopRatedIcon";
 
 const Navbar = () => {
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
       <div className="content-wrapper">
         <div className="navbar-top-container">
           <h1 className="title">
-            <Link to="/">Moviebase - search your favorite movie </Link>
+            <Link to="/"> Moviebase <span> search your favorite movie </span></Link>
           </h1>
           <Searchbar />
         </div>
@@ -22,6 +23,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to="/topRatedMovies" className="navlink">
+                <TopRatedIcon/>
                 TopRated
               </NavLink>
             </li>
