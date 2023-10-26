@@ -2,6 +2,10 @@
   flex-grow: 1;
 }
 
+h2 {
+  font-family: "poppins";
+}
+
 .movies-list {
   gap: 2rem;
   display: grid;
@@ -10,6 +14,8 @@
   width: 100%;
   padding: 3rem 0;
   grid-template-columns: repeat(5, 1fr);
+  animation: fade 1s;
+  font-family: "poppins";
   // TODO: zająć się responsywnością
 
   a {
