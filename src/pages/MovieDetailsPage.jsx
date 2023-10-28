@@ -2,6 +2,10 @@ import { useParams } from "react-router-dom";
 import axios, { API_KEY } from "../api/axios";
 import { useQuery } from "@tanstack/react-query";
 import placeholder from "@images/placeholder.jpg";
+import LoadingPage from "../components/RequestStates/RequestLoader";
+import LoaderPage from "../components/RequestStates/RequestLoader";
+import RequestLoader from "../components/RequestStates/RequestLoader";
+import RequestError from "../components/RequestStates/RequestError";
 
 const MovieDetailsPage = ({ enpointKey }) => {
   const { Id } = useParams();
@@ -22,16 +26,15 @@ const MovieDetailsPage = ({ enpointKey }) => {
 
   return (
     <div className="movie-details content-wrapper">
-      <h2>MovieDetailsPage</h2>
-      {isLoading ? <p>Ładowanie....</p> : null}
-      {isError ? <p>Wystąpił błąd</p> : null}
+      {isLoading ? <RequestLoader /> : null}
+      {isError ? <RequestError /> : null}
       {data ? (
         <div>
           <p>Title: {enpointKey == "movie" ? data.title : data.name}</p>
           <img
             src={
               data["poster_path"]
-                ? `https://image.tmdb.org/t/p/w200${data["poster_path"]}`
+                ? `https://image.tmdb.org/t/p/w300${data["poster_path"]}`
                 : placeholder
             }
             alt={data.title + " poster"}

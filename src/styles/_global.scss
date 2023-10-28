@@ -3,6 +3,14 @@
 * {
   box-sizing: border-box;
 }
+html::-webkit-scrollbar {
+  width: 0.5rem;
+  background: var(--text-color);
+}
+html::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 5rem;
+}
 
 body {
   min-height: 100vh;

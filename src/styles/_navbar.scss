@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap");
 
 ::selection {
   background-color: red;
@@ -143,44 +143,43 @@ nav ul {
   margin: 0;
   animation: fade 0.3s;
 
-li {
-  padding: 0.5rem 0;
+  li {
+    padding: 0.5rem 0;
 
+    .navlink {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.1rem;
+      display: flex;
+      column-gap: 0.355rem;
+      transition: all ease 0.4s;
+      font-family: "Poppins";
 
-.navlink {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.1rem;
-  display: flex;
-  column-gap: 0.355rem;
-  transition: all ease 0.4s;
-  font-family: "Poppins";
+      @keyframes fade {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
 
-@keyframes fade {
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
-}
+      &.active {
+        color: red;
+        animation: fade 1s;
 
-  &.active {
-    color: red;
-    animation: fade 1s;
+        svg path {
+          fill: red;
+        }
+      }
 
-    svg path {
-      fill: red;
+      svg {
+        height: 1.5rem;
+        width: auto;
+        path {
+          fill: #fff;
+        }
+      }
     }
   }
-
-  svg {
-    height: 1.5rem;
-    width: auto;
-    path {
-      fill: #fff;
-    }
-  }
-}
-}
 }

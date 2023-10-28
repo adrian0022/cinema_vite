@@ -4,6 +4,8 @@ import axios, { API_KEY } from "../api/axios";
 import { useQuery } from "@tanstack/react-query";
 import Pagination from "../components/Pagination";
 import MoviesList from "../components/MoviesList";
+import RequestLoader from "../components/RequestStates/RequestLoader";
+import RequestError from "../components/RequestStates/RequestError";
 
 const SearchingResultsList = () => {
   const [searchParams] = useSearchParams();
@@ -13,9 +15,9 @@ const SearchingResultsList = () => {
 
   useEffect(() => {
     const query = searchParams.get("query");
-    const resultTypeParam = searchParams.get('resultType');
+    const resultTypeParam = searchParams.get("resultType");
     if (searchQuery != query) setSearchQuery(query);
-    if(resultType !=resultTypeParam) setresultType(resultTypeParam)
+    if (resultType != resultTypeParam) setresultType(resultTypeParam);
   }, [searchParams]);
 
   const [activePage, setActivePage] = useState(1);
@@ -43,17 +45,15 @@ const SearchingResultsList = () => {
     <div className="list-container content-wrapper">
       <h2>Results</h2>
       <>
-        {isLoading ? <p>loading...</p> : null}
-        {isError ? <p>wystąpił błąd</p> : null}
+        {isLoading ? <RequestLoader /> : null}
+        {isError ? <RequestError /> : null}
         {data?.total_results > 0 ? (
           <>
             <MoviesList moviesList={data.results} resourceType="movie" />
             <Pagination
               activePage={activePage}
               setActivePage={handleSatActivePage}
-              totalPages={
-                (data?.['total_pages'] > 99) ? 99 : data['total_pages']
-              }
+              totalPages={data?.["total_pages"] > 99 ? 99 : data["total_pages"]}
             />
           </>
         ) : (
