@@ -39,8 +39,7 @@ const MovieDetailsPage = ({ enpointKey }) => {
             }
             alt={data.title + " poster"}
           />
-          <p>
-            {data.vote_average} / 10 ({data.vote_count})
+          <p> Rating: {data.vote_average.toFixed(2)} / 10 ({data.vote_count})
           </p>
           <p>Overview: {data.overview}</p>
         </div>

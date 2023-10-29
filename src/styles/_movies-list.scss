@@ -7,16 +7,31 @@ h2 {
 }
 
 .movies-list {
-  gap: 2rem;
   display: grid;
-  flex-direction: column;
-  row-gap: 7rem;
+  column-gap: 2rem;
+  row-gap: 3rem;
   width: 100%;
   padding: 3rem 0;
   grid-template-columns: repeat(5, 1fr);
-  animation: fade 1s;
   font-family: "poppins";
   // TODO: zająć się responsywnością
+
+  @include break("xl down") {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include break("lg down") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include break("sm down") {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+  }
+
+  @include break("xxs down") {
+    grid-template-columns: 100%;
+  }
 
   a {
     text-decoration: none;

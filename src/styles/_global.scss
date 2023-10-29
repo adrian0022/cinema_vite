@@ -12,9 +12,20 @@ html::-webkit-scrollbar-thumb {
   border-radius: 5rem;
 }
 
+html {
+  font-size: clamp(0.75rem, 0.4643rem + 0.5952vw, 1rem);
+
+  @include break('sm down') {
+    font-size: 14px;
+  }
+
+  @include break("xxs down") {
+    font-size: 12px;
+  }
+}
+
 body {
   min-height: 100vh;
-  animation: fade 1s;
 }
 
 #root {

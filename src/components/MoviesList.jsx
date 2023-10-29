@@ -10,7 +10,7 @@ const MoviesList = ({ moviesList, resourceType }) => {
             id={movie.id}
             title={resourceType == "movie" ? movie.title : movie.name}
             poster={movie.poster_path}
-            voteAvg={movie.vote_average}
+            voteAvg={movie.vote_average.toFixed(2)}
             resourceType={resourceType}
           />
         );

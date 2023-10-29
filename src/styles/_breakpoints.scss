@@ -1,0 +1,33 @@
+$breakpointsDown: (
+  'xxs down': '350px',
+  'xs down': '375px',
+  'sm down': '576px',
+  'md down' : '768px',
+  'lg down': '992px', 
+  'xl down' : '1200px',
+  'xxl down': '1440px',
+) !default;
+
+$breakpointsUp: (
+  'xxs up': '351px',
+  'xs up': '426px',
+  'sm up': '577px',
+  'md up' : '769px',
+  'lg up': '993px', 
+  'xl up' : '1201px',
+  'xxl up': '1441px',
+) !default;
+
+@mixin break($breakpoint) {
+    @if map-has-key($breakpointsDown, $breakpoint) { 
+      @media (max-width: map-get($breakpointsDown, $breakpoint)) {
+        @content;
+      }
+    }
+  
+    @else {
+      @media (min-width: map-get($breakpointsUp, $breakpoint)) {
+        @content;
+      }
+    }
+  }

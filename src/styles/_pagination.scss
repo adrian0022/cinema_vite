@@ -15,7 +15,6 @@
       height: 2rem;
       width: auto;
       transition: scale 0.3s ease-in-out;
-      animation: fade 1s;
 
       path {
         fill: #fff;
@@ -37,7 +36,6 @@
     align-items: center;
     justify-content: center;
     color: #fff;
-    animation: fade 1s;
   }
 
   .pagination-element {

@@ -49,7 +49,7 @@ const SearchingResultsList = () => {
         {isError ? <RequestError /> : null}
         {data?.total_results > 0 ? (
           <>
-            <MoviesList moviesList={data.results} resourceType="movie" />
+            <MoviesList moviesList={data.results} resourceType={resultType} />
             <Pagination
               activePage={activePage}
               setActivePage={handleSatActivePage}

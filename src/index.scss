@@ -13,8 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+@import "./styles/breakpoints";
 @import "./styles/utils";
 @import "./styles/navbar";
+@import "./styles/searchbar";
 @import "./styles/movies-list";
 @import "./styles/pagination";
 @import "./styles/movie-details";
