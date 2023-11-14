@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap");
 
 ::selection {
   background-color: red;
@@ -24,6 +22,16 @@
     margin-bottom: 1rem;
     position: relative;
 
+    button {
+      align-items: center;
+      padding: 0.25rem 1.25rem;
+      border-radius: 20px;
+      height: 2.5rem;
+      background-color: #d1d1d111;
+      border: none;
+      display: flex;
+    }
+
     @include break("md down") {
       flex-direction: column;
       row-gap: 2rem;
@@ -31,7 +39,7 @@
     }
 
     .title {
-      font-family: "monoton";
+      font-family: "Monoton";
       text-transform: uppercase;
       font-size: 2.675rem;
       font-weight: 400;
@@ -107,6 +115,7 @@ nav {
     display: flex;
     justify-content: center;
     padding: 6rem 5% 3rem;
+    z-index: 10;
 
     &.opened {
       transform: translateX(-100%);
@@ -139,7 +148,6 @@ nav {
         display: flex;
         column-gap: 0.355rem;
         transition: all ease 0.4s;
-        font-family: "Poppins";
 
         @include break("sm down") {
           font-size: 1.5rem;

@@ -2,10 +2,6 @@
   flex-grow: 1;
 }
 
-h2 {
-  font-family: "poppins";
-}
-
 .movies-list {
   display: grid;
   column-gap: 2rem;
@@ -13,8 +9,6 @@ h2 {
   width: 100%;
   padding: 3rem 0;
   grid-template-columns: repeat(5, 1fr);
-  font-family: "poppins";
-  // TODO: zająć się responsywnością
 
   @include break("xl down") {
     grid-template-columns: repeat(4, 1fr);
