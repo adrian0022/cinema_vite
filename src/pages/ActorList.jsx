@@ -10,7 +10,7 @@ const ActorList = ({ actors }) => {
                 <img
                   src={
                     actor?.profile_path
-                      ? `https://image.tmdb.org/t/p/w300${actor.profile_path}`
+                      ? `https://image.tmdb.org/t/p/w400${actor.profile_path}`
                       : placeholder
                   }
                   alt=""

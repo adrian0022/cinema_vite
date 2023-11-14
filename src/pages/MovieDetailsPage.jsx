@@ -58,7 +58,7 @@ const MovieDetailsPage = ({ enpointKey }) => {
             <img
               src={
                 data["poster_path"]
-                  ? `https://image.tmdb.org/t/p/w400${data["poster_path"]}`
+                  ? `https://image.tmdb.org/t/p/w500${data["poster_path"]}`
                   : placeholder
               }
               alt={data.title + " poster"}

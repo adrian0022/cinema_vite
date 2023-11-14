@@ -6,7 +6,7 @@ const MovieListItem = ({ poster, title, voteAvg, id, resourceType }) => {
     <Link to={`/${resourceType}Details/${id}`}>
       <div className="movie-list-item">
         <img
-          src={poster?`https://image.tmdb.org/t/p/w200${poster}`:placeholder}
+          src={poster?`https://image.tmdb.org/t/p/w500${poster}`:placeholder}
           alt={title + " poster"}
         />
         <div>
