@@ -16,6 +16,7 @@ const ActorList = ({ actors }) => {
                   alt=""
                 />
                 <p>{actor.original_name}</p>
+                <h5>{actor.character}</h5>
               </div>
             );
           })

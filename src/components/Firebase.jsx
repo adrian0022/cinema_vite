@@ -8,7 +8,7 @@ const firebaseConfig = {
   storageBucket: "reactvitemovieapp.appspot.com",
   messagingSenderId: import.meta.env.VITE_FIREBASE_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
@@ -22,10 +22,12 @@ export const signInWithGoogle = () => {
       const name = result.user.displayName;
       const email = result.user.email;
       const profilePic = result.user.photoURL;
+      const userID = result.user.uid; // Dodaj zapisywanie userID
 
       localStorage.setItem("name", name);
       localStorage.setItem("email", email);
       localStorage.setItem("profilePic", profilePic);
+      localStorage.setItem("userID", userID); // Przechowaj userID
     })
     .catch((error) => {
       console.log(error);

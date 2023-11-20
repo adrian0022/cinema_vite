@@ -7,15 +7,34 @@ import NowPlayingIcon from "../assets/icons/NowPlayingIcon";
 import PopularTvSeriesIcon from "../assets/icons/PopularTvSeriesIcon";
 import TopRatedTvSeriesIcon from "../assets/icons/TopRatedTvSeriesIcon";
 import HamburgerMenuIcon from "../assets/icons/HamburgerMenuIcon";
+import LogutIcon from "../assets/icons/LogutIcon";
+import GoogleIcon from "../assets/icons/social_icons/GoogleIcon";
 import { useState } from "react";
 import { signInWithGoogle } from "./Firebase";
+import { useAuth } from "./AuthContext";
+import HeartIcon from "../assets/icons/HeartIcon";
 
 const Navbar = () => {
   const [sidebarOpened, setSidebarOpened] = useState(false);
+  const { user, signOut } = useAuth(); // Dodaj userID
 
   const closeSidebar = () => setSidebarOpened(false);
 
   const toggleSidebar = () => setSidebarOpened((prev) => !prev);
+
+  const handleSignInOut = async () => {
+    try {
+      if (user) {
+        // Jeśli użytkownik jest zalogowany, wykonaj wylogowanie
+        await signOut();
+      } else {
+        // Jeśli użytkownik nie jest zalogowany, wykonaj logowanie
+        await signInWithGoogle();
+      }
+    } catch (error) {
+      console.error("Błąd podczas logowania/wylogowywania:", error);
+    }
+  };
 
   return (
     <div className="navbar">
@@ -25,8 +44,18 @@ const Navbar = () => {
             <Link to="/">Moviebase</Link>
             <span> search your favorite movie </span>
           </h1>
-          <button className="login-with-google-btn" onClick={signInWithGoogle}>
-            Sign in with Google
+          <button className="login-with-google-btn" onClick={handleSignInOut}>
+            {user ? (
+              <>
+              <LogutIcon />
+                <span> Log out</span>
+              </>
+            ) : (
+              <>
+                <GoogleIcon />
+                <span>Sign in with Google</span>
+              </>
+            )}
           </button>
           <Searchbar />
           <HamburgerMenuIcon className="menu-icon" onClick={toggleSidebar} />
@@ -89,6 +118,22 @@ const Navbar = () => {
                 Top Rated TV Series
               </NavLink>
             </li>
+            {user ? (
+              <>
+                <li>
+                  <NavLink
+                    onClick={closeSidebar}
+                    to="/favorites"
+                    className="navlink"
+                  >
+                    <HeartIcon />
+                    Favorites
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <></>
+            )}
           </ul>
         </nav>
       </div>

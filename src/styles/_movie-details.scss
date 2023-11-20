@@ -21,6 +21,22 @@
   z-index: 1;
   text-align: left;
 
+  button {
+    align-items: center;
+    padding: 0.25rem 1.25rem;
+    border-radius: 20px;
+    height: 2.5rem;
+    background-color: #d1d1d111;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    span
+    {
+      padding: 1rem;
+    }
+  }
+
+
   .movie-info {
     display: grid;
     grid-template-columns: min(35%, 400px) auto;
@@ -29,11 +45,8 @@
 
     @include break("md down") {
       row-gap: 3rem;
-
-      h1 {
-        margin-top: 0;
-      }
-    }
+  }
+  
 
     @include break("sm down") {
       grid-template-columns: 100%;

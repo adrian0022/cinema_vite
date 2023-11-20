@@ -1,6 +1,6 @@
 const RequestLoader = () => {
   return (
-    <div className="Loading">
+    <div className="Loading ">
       <p> Loading ...</p>
     </div>
   );

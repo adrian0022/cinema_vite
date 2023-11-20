@@ -5,11 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 import placeholder from "@images/placeholder.jpg";
 import RequestLoader from "../components/RequestStates/RequestLoader";
 import RequestError from "../components/RequestStates/RequestError";
-import HeartIcon from "../assets/icons/HeartIcon";
 import ActorList from "./ActorList";
+import ToggleFavorite from "../components/ToggleFavorite";
+import { useAuth } from "../components/AuthContext";
 
 const MovieDetailsPage = ({ enpointKey }) => {
-  const { Id } = useParams();
+  const { Id,} = useParams();
 
   const getMovieDetails = async () => {
     const response = await axios.get(
@@ -31,6 +32,8 @@ const MovieDetailsPage = ({ enpointKey }) => {
     return { ...response.data, trailerKey, castList };
   };
 
+  const { user} = useAuth(); // Dodaj userID
+  
   const { data, isLoading, isError } = useQuery(
     [enpointKey + "Details" + Id],
     getMovieDetails
@@ -68,14 +71,27 @@ const MovieDetailsPage = ({ enpointKey }) => {
               <div className="trailer">
                 <iframe
                   title={`${data.title} Trailer`}
-                  src={`https://www.youtube.com/embed/${data.trailerKey}?autoplay=1&controls=1`}
+                  src={`https://www.youtube.com/embed/${data.trailerKey}?&controls=1`}
                   frameBorder="0"
                   allowFullScreen
                 />
               </div>
             )}
             <div className="details-content">
-              <h1>{enpointKey === "movie" ? data.title : data.name}</h1>
+              <h1>{enpointKey === "movie" ? data.title : data.name} 
+              </h1>
+                    {user ? (
+              <>
+                 <ToggleFavorite 
+                  videoId={data?.['id']}
+                  title={enpointKey === "movie" ? data.title : data.name}
+                  resourceType={enpointKey} 
+                  posterPath={data?.['poster_path']}
+                />
+              </>
+            ) : (
+              <></>
+            )}
               <p>
                 Rating: {data.vote_average.toFixed(2)} / 10 || Total number of
                 reviews: ({data.vote_count})

@@ -30,6 +30,11 @@
       background-color: #d1d1d111;
       border: none;
       display: flex;
+      cursor: pointer;
+      span
+      {
+        padding: 1rem;
+      }
     }
 
     @include break("md down") {
@@ -81,7 +86,7 @@
       height: 1.5rem;
       width: auto;
       cursor: pointer;
-
+      display: flex;
       path {
         fill: #fff;
       }
