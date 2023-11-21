@@ -1,8 +1,13 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 const RequestError = () => {
   return (
     <div className="RequestError">
-      <p>Error back to main page</p>
+      <NavLink to="/" activeClassName="navlink">
+        <button>
+          Error Back to main page
+        </button>
+      </NavLink>
     </div>
   );
 };
