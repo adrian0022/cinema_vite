@@ -115,8 +115,6 @@ const MovieDetailsPage = ({ enpointKey }) => {
         ) : null}
       </div>
     </div>
-        {isLoading ? <RequestLoader /> : null}
-        {isError ? <RequestError /> : null}
         {data?.castList ? (
           <ActorList actors={data.castList}/>
         ) : null}

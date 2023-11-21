@@ -1,7 +1,9 @@
+
 const RequestLoader = () => {
   return (
-    <div className="Loading ">
-      <p> Loading ...</p>
+    <div className="LoadingScreen">
+      <div className="loader"></div>
+      <p>Loading...</p>
     </div>
   );
 };

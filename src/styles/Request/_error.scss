@@ -1,0 +1,18 @@
+.RequestError {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .RequestError p {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    background-color: #d1d1d111;
+    border-radius: 20px;
+    border: none;
+    background-color: #232323;
+  }

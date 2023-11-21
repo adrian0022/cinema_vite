@@ -80,7 +80,7 @@ const ToggleFavorite = ({ videoId, title, resourceType, posterPath }) => {
     <button onClick={isFavorite ? removeFromFavorites : addToFavorites}>
       {isFavorite ? (
         <>
-          <HeartIcon /> <span>Remove from Favorites </span>
+          <HeartIcon /> <span>Your favourite, remove on Click </span>
         </>
       ) : (
         <>

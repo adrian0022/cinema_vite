@@ -40,5 +40,33 @@
       border-radius: 20px;
       border: 2px solid #232323;
     }
+    button {
+      align-items: center;
+      padding: 0.25rem 1.25rem;
+      border-radius: 20px;
+      height: 2.5rem;
+      background-color: #d1d1d111;
+      border: none;
+      cursor: pointer;
+      display: inline flex;
+    }
+    span {
+      padding: 1rem;
+    }
+  }
+  .empty-list {
+    button {
+      align-items: center;
+      padding: 0.25rem 1.25rem;
+      border-radius: 20px;
+      height: 2.5rem;
+      background-color: #d1d1d111;
+      border: none;
+      display: flex;
+      cursor: pointer;
+      span {
+        padding: 1rem;
+      }
+    }
   }
 }
