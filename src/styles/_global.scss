@@ -15,7 +15,7 @@ html::-webkit-scrollbar-thumb {
 html {
   font-size: clamp(0.75rem, 0.4643rem + 0.5952vw, 1rem);
 
-  @include break('sm down') {
+  @include break("sm down") {
     font-size: 14px;
   }
 

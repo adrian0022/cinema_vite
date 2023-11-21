@@ -3,7 +3,7 @@ import MoviesListDataLogic from "../components/MoviesListDataLogic";
 const TopRatedMoviesList = () => {
   return (
     <div className="list-container content-wrapper">
-        <h2> Top Rated Movies List </h2>
+      <h2> Top Rated Movies List </h2>
       <MoviesListDataLogic
         endpointLink="/movie/top_rated"
         queryKey="topRatedMovies"

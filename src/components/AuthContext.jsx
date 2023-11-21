@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from './Firebase';
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { auth } from "./Firebase";
 
 const AuthContext = createContext();
 
@@ -12,11 +12,11 @@ export const AuthProvider = ({ children }) => {
       if (authUser) {
         setUser(authUser);
         setUserID(authUser.uid); // Ustaw userID
-        localStorage.setItem('user', JSON.stringify(authUser));
+        localStorage.setItem("user", JSON.stringify(authUser));
       } else {
         setUser(null);
         setUserID(null); // Resetuj userID
-        localStorage.removeItem('user');
+        localStorage.removeItem("user");
       }
     });
 
@@ -27,10 +27,10 @@ export const AuthProvider = ({ children }) => {
 
   const signIn = (name, email, profilePic) => {
     setUserID(auth.currentUser.uid); // Ustaw userID podczas logowania
-    localStorage.setItem('userID', auth.currentUser.uid); // Przechowaj userID w localStorage
-    localStorage.setItem('name', name);
-    localStorage.setItem('email', email);
-    localStorage.setItem('profilePic', profilePic);
+    localStorage.setItem("userID", auth.currentUser.uid); // Przechowaj userID w localStorage
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+    localStorage.setItem("profilePic", profilePic);
   };
 
   const signOut = () => {
@@ -39,18 +39,20 @@ export const AuthProvider = ({ children }) => {
       .then(() => {
         setUser(null);
         setUserID(null); // Resetuj userID po wylogowaniu
-        localStorage.removeItem('userID'); // Usuń userID z localStorage
-        localStorage.removeItem('name');
-        localStorage.removeItem('email');
-        localStorage.removeItem('profilePic');
+        localStorage.removeItem("userID"); // Usuń userID z localStorage
+        localStorage.removeItem("name");
+        localStorage.removeItem("email");
+        localStorage.removeItem("profilePic");
       })
       .catch((error) => {
-        console.error('Błąd podczas wylogowywania:', error);
+        console.error("Błąd podczas wylogowywania:", error);
       });
   };
 
   return (
-    <AuthContext.Provider value={{ user, userID, signIn, signOut }}> {/* Dodaj userID do wartości kontekstu */}
+    <AuthContext.Provider value={{ user, userID, signIn, signOut }}>
+      {" "}
+      {/* Dodaj userID do wartości kontekstu */}
       {children}
     </AuthContext.Provider>
   );

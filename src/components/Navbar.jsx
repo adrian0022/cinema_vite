@@ -47,7 +47,7 @@ const Navbar = () => {
           <button className="login-with-google-btn" onClick={handleSignInOut}>
             {user ? (
               <>
-              <LogutIcon />
+                <LogutIcon />
                 <span> Log out</span>
               </>
             ) : (

@@ -68,7 +68,9 @@ const FavoriteList = () => {
           <div className="empty-list">
             <h3>Your favorites list is empty.</h3>
             <NavLink to="/" activeClassName="navlink">
-              <button><HeartAddIcon/> <span>Add to your list</span></button>
+              <button>
+                <HeartAddIcon /> <span>Add to your list</span>
+              </button>
             </NavLink>
           </div>
         )}
